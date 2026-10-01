@@ -24,7 +24,7 @@ const faltaParaEnvioGratis = computed(() => Math.max(0, ENVIO_GRATIS - subtotal.
       <template v-else>
         <ul class="drawer__lista">
           <li v-for="l in lineas" :key="l.id" class="drawer__linea">
-            <span class="drawer__emoji" aria-hidden="true">{{ l.emoji }}</span>
+            <img class="drawer__imagen" :src="l.imagen" :alt="l.nombre" loading="lazy" />
             <div class="drawer__datos">
               <p class="drawer__nombre">{{ l.nombre }}</p>
               <p class="drawer__pres">{{ l.presentacion }} · ${{ fmt(l.precio) }}</p>

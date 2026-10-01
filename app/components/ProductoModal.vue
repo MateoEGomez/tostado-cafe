@@ -38,7 +38,9 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
 
       <template v-else>
         <div class="detalle">
-          <div class="detalle__media" aria-hidden="true">{{ data.producto.emoji }}</div>
+          <div class="detalle__media">
+            <img :src="data.producto.imagen" :alt="data.producto.nombre" loading="lazy" />
+          </div>
           <div class="detalle__info">
             <p class="detalle__meta">
               {{ data.producto.categoria }} · {{ data.producto.presentacion }} · SKU
@@ -90,7 +92,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
           <ul>
             <li v-for="r in data.relacionados" :key="r.id">
               <button type="button" @click="verProducto(r.id)">
-                <span aria-hidden="true">{{ r.emoji }}</span>
+                <img :src="r.imagen" :alt="r.nombre" loading="lazy" />
                 {{ r.nombre }}
                 <small>${{ fmt(r.precio) }}</small>
               </button>

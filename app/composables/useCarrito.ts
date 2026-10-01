@@ -4,7 +4,7 @@ export interface LineaCarrito {
   id: string
   nombre: string
   precio: number
-  emoji: string
+  imagen: string
   presentacion: string
   cantidad: number
 }
@@ -14,7 +14,7 @@ export const CLAVE_CARRITO = 'tostado:carrito:v1'
 export const useCarrito = () => {
   const lineas = useState<LineaCarrito[]>('carrito', () => [])
 
-  const agregar = (p: Pick<Producto, 'id' | 'nombre' | 'precio' | 'emoji' | 'presentacion'>, n = 1) => {
+  const agregar = (p: Pick<Producto, 'id' | 'nombre' | 'precio' | 'imagen' | 'presentacion'>, n = 1) => {
     const existente = lineas.value.find((l) => l.id === p.id)
     if (existente) {
       existente.cantidad = Math.min(99, existente.cantidad + n)
@@ -23,7 +23,7 @@ export const useCarrito = () => {
         id: p.id,
         nombre: p.nombre,
         precio: p.precio,
-        emoji: p.emoji,
+        imagen: p.imagen,
         presentacion: p.presentacion,
         cantidad: n
       })

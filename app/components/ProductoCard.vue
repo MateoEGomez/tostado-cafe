@@ -21,7 +21,7 @@ const sumar = () => {
 <template>
   <motion.article class="card" :while-hover="{ y: -4 }" :transition="{ duration: 0.2 }">
     <button type="button" class="card__media" @click="verProducto(producto.id)">
-      <span aria-hidden="true">{{ producto.emoji }}</span>
+      <img :src="producto.imagen" :alt="producto.nombre" loading="lazy" />
       <span v-if="producto.destacado" class="card__badge">Destacado</span>
       <span v-if="sinStock" class="card__badge card__badge--off">Sin stock</span>
     </button>
