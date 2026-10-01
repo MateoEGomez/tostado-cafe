@@ -13,7 +13,7 @@ export interface Producto {
   perfil: string
   presentacion: string
   stock: number
-  emoji: string
+  imagen: string
   destacado: boolean
   metodos: string[]
 }
