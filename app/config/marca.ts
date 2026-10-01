@@ -7,7 +7,9 @@ export const marca = {
     bajada:
       'Microlotes y blends tostados cada semana. Comprá en grano o molido, con retiro en el local o envío a todo el país.',
     cta: 'Ver la tienda',
-    ctaSecundaria: 'Cómo compramos'
+    ctaSecundaria: 'Cómo compramos',
+    imagen:
+      'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&h=900&q=80'
   },
   propuesta: {
     titulo: 'Por qué comprarnos',
