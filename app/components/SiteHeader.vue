@@ -21,7 +21,9 @@ const { abrirCarrito } = useUi()
     <button type="button" class="cab__carrito" @click="abrirCarrito()">
       <span aria-hidden="true">🛒</span>
       <span class="cab__carrito-txt">Carrito</span>
-      <span v-if="unidades > 0" class="cab__badge">{{ unidades }}</span>
+      <ClientOnly>
+        <span v-if="unidades > 0" class="cab__badge">{{ unidades }}</span>
+      </ClientOnly>
     </button>
   </header>
 </template>

@@ -38,21 +38,28 @@ const sumar = () => {
       <div class="card__pie">
         <span class="card__precio">${{ fmt(producto.precio) }}</span>
 
-        <div v-if="enCarrito > 0" class="stepper" role="group" aria-label="Cantidad">
-          <button type="button" @click="setCantidad(producto.id, enCarrito - 1)" aria-label="Quitar uno">−</button>
-          <span>{{ enCarrito }}</span>
-          <button
-            type="button"
-            :disabled="enCarrito >= producto.stock"
-            @click="setCantidad(producto.id, enCarrito + 1)"
-            aria-label="Agregar uno"
-          >
-            +
+        <ClientOnly>
+          <div v-if="enCarrito > 0" class="stepper" role="group" aria-label="Cantidad">
+            <button type="button" @click="setCantidad(producto.id, enCarrito - 1)" aria-label="Quitar uno">−</button>
+            <span>{{ enCarrito }}</span>
+            <button
+              type="button"
+              :disabled="enCarrito >= producto.stock"
+              @click="setCantidad(producto.id, enCarrito + 1)"
+              aria-label="Agregar uno"
+            >
+              +
+            </button>
+          </div>
+          <button v-else type="button" class="btn btn--chico" :disabled="sinStock" @click="sumar">
+            Agregar
           </button>
-        </div>
-        <button v-else type="button" class="btn btn--chico" :disabled="sinStock" @click="sumar">
-          Agregar
-        </button>
+          <template #fallback>
+            <button type="button" class="btn btn--chico" :disabled="sinStock" @click="sumar">
+              Agregar
+            </button>
+          </template>
+        </ClientOnly>
       </div>
 
       <button type="button" class="card__ver" @click="verProducto(producto.id)">Ver detalle</button>
